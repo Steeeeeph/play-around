@@ -15,7 +15,7 @@ class GuessingGame
     {
         // We ask for the max guesses when someone creates a game
         // Allowing your settings to be chosen like this, will bring a lot of flexibility
-        $this->maxGuesses = $maxGuesses;
+        $this->maxGuesses = empty($_POST["max-guesses"]) ? $maxGuesses : $_POST["max-guesses"];
 
     }
 
@@ -41,20 +41,23 @@ class GuessingGame
         } 
         
         // TODO: check if the player has submitted a guess
-        if ($this->maxGuesses > $this->attempts) {
+        if ($this->maxGuesses > $_SESSION["attempts"]) {
             if (!empty($_POST["user-guess"])) {
                 $this->attempts++;
                 $_SESSION["attempts"] = $this->attempts;
                 $this->userGuess = $_POST["user-guess"];
-
+                if ($this->maxGuesses == $_SESSION["attempts"]){
+                    return 'Game over! <input type="submit" name="reset" value="Go again!">';
+        
+                }
                 // --> if so, check if the player won (run the related function) or not (give a hint if the number was higher/lower or run playerLoses if all guesses are used).
-                if ($_POST["user-guess"] == $_SESSION["secretnumber"]) {
+                elseif ($_POST["user-guess"] == $_SESSION["secretnumber"]) {
                     return '<span>Yay! You guessed the number '.$_SESSION["secretnumber"].' in '.$this->attempts.' tries!</span><input type="submit" name="reset" value="Go again!">';
                 
                 } elseif ($_POST["user-guess"] > $_SESSION["secretnumber"]) {
                     return "<span>That's too high!</span>";
                 
-                } else {
+                } elseif ($_POST["user-guess"] < $_SESSION["secretnumber"]) {
                     return "<span>Nope, it's a higher number...</span>";
                 }
                 
@@ -74,6 +77,7 @@ class GuessingGame
         // TODO: Generate a new secret number and overwrite the previous one
         $_SESSION["attempts"] = 0;
         $_SESSION["secretnumber"] = "";
+        $_POST["max-guesses"] = "";
 
     }
 }
