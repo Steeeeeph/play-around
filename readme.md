@@ -6,10 +6,12 @@
 - Team challenge : `solo`
 
 ## Learning Objectives
+
 - Apply OOP in PHP
 - Adhere to the [best practises](../0.Getting-started-with-PHP/PHP-best-practises.md) we've assembled together
 
 ## The Mission
+
 We're a couple of months in, and you're still going strong! 💪
 Remember the early days, when we were building a casino... why not play around again and use it to practise out shiny new class knowledge?
 
