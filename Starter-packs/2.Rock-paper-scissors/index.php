@@ -4,9 +4,11 @@
 declare(strict_types = 1);
 
 // Show errors so we get helpful information
+/*
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
+*/
 
 session_start();
 
@@ -35,4 +37,4 @@ function whatIsHappening() {
    echo '<h2>$_SESSION</h2>';
    var_dump($_SESSION);
 }
-whatIsHappening();
+// whatIsHappening();

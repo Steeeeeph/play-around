@@ -15,11 +15,11 @@
 	<fieldset>
 		<form method="post">Your pick:</label>
 			<select name="user-weapon" id="user-weapon" value="<?= $_POST["user-weapon"] ?>">
-				<option value="rock">Rock</option>
-				<option value="paper">Paper</option>
-				<option value="scissors">Scissors</option>
+				<option value="rock" <?=$_POST["user-weapon"] == "rock" ? "selected":""?>>Rock</option>
+				<option value="paper" <?=$_POST["user-weapon"] == "paper" ? "selected":""?>>Paper</option>
+				<option value="scissors" <?=$_POST["user-weapon"] == "scissors" ? "selected":""?>>Scissors</option>
 			</select>
-			<input type="submit" name="submit" value="Play">
+			<input type="submit" name="submit" value="Play" <?= $game->gameOver ? "disabled" : ""?>>
 			<input type="submit" name="reset" value="Reset">
 		</form>
 		<p> Computer's pick: <?= ucfirst($game->computerWeapon) ?> </p>

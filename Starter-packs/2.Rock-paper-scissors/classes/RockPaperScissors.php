@@ -9,12 +9,13 @@ class RockPaperScissors
       public $result;
       public $userScore = 0;
       public $computerScore = 0;
-      public $attempts = 0;
+      // public $attempts = 0;
       private $win = "You win! :)";
       private $lose = "You lose! :(";
       private $draw = "It's a draw :|";
       private $computerWin = "Game over! You've been beaten by the computer.";
       private $userWin = "Hell yeah! You've won this set!";
+      public $gameOver = false;
 
       public function __construct()
       {
@@ -28,6 +29,7 @@ class RockPaperScissors
 
             $this->userScore = $_SESSION["user-score"];
             $this->computerScore = $_SESSION["computer-score"];
+            $this->gameOver = $gameOver;
 
             // Selecting user weapon
             if ($_POST["user-weapon"] === $this->weapons[0]) {
@@ -85,14 +87,16 @@ class RockPaperScissors
             }
 
             // Attempts
+            /*
             $this->attempts++;
             $_SESSION["attempts"] = $this->attempts;
-                        
+            */            
       }
 
       public function youWin() {
             if ($this->userScore == 5) {
                   $this->reset();
+                  $this->gameOver = true;
                   return $this->result = $this->userWin;
 
             } else {
@@ -102,6 +106,7 @@ class RockPaperScissors
       public function youLose() {
             if ($this->computerScore == 5) {
                   $this->reset();
+                  $this->gameOver = true;
                   return $this->result = $this->computerWin;
             } else {
                   return $this->result = $this->lose;
@@ -112,5 +117,11 @@ class RockPaperScissors
       {
             $_SESSION["user-score"] = 0;
             $_SESSION["computer-score"] = 0;
+            $this->computerWeapon = "";
+            $this->result = "";
       }
+      // public function gameOver()
+      // {
+      //       return $this->gameOver = true;
+      // }
 }
