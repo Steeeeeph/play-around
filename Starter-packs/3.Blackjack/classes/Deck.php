@@ -39,12 +39,15 @@ class Deck
          // return $this->cards;
       }
    }
-   public function showCards()
-   {
-      foreach ($this->cards as $card) {
-         $card->createImageSrc();
-      }
-   }
+
+   // TODO link to game
+
+   // public function showCards()
+   // {
+   //    foreach ($this->cards as $card) {
+   //       $card->createImageSrc();
+   //    }
+   // }
 
    public function showScore()
    {

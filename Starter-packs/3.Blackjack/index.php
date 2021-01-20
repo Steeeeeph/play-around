@@ -19,16 +19,16 @@ session_start();
 
 // Load you classes
 require_once 'classes/Deck.php';
-// require_once 'classes/Player.php';
-// require_once 'classes/Blackjack.php';
+require_once 'classes/Player.php';
+require_once 'classes/Blackjack.php';
 
 // Start the game
-// $game = new Blackjack();
+$game = new Blackjack();
 $deck = new Deck();
 $card = new Card();
 echo "<pre>";
-var_dump($deck->cards);
-// var_dump($card->createImageSrc(""));
+// var_dump($deck->cards);
+var_dump($game->run());
 
 // var_dump($deckGame);
 echo "</pre>";

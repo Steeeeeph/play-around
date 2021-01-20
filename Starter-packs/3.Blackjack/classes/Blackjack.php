@@ -9,16 +9,19 @@ class Blackjack
    {
       $this->deck = new Deck();
       shuffle($this->deck->cards);
-      $this->players = [new Computer("Dealer"), new User("You")];
+      $this->players = [new Computer("Dealer"), new User("Player")];
 
       foreach($this->players as $player) {
          $player->addCardToHand(array_shift($this->deck->cards));
+         // $player->showHand();
+         // echo "<br>";
+         // echo "{$player->name} has {$player->calculateValueHand()}.<br>";
       }
-      // foreach($this->players as $player) {
-      //    $player->addCardToHand(array_shift($this->deck->cards));
-      // }
-      echo "{$this->players[0]->name} has {$this->players[0]->calculateValueHand()}.";
-      echo "{$this->players[1]->name} have {$this->players[1]->calculateValueHand()}.";
-      $this->players[0]->showCards($deck->pathToImage);
+      foreach($this->players as $player) {
+         $player->addCardToHand(array_shift($this->deck->cards));
+         $player->showHand();
+         echo "<br>";
+         echo "{$player->name} has {$player->calculateValueHand()}.<br>";
+      }
    }
 }

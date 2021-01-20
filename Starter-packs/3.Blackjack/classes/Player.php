@@ -18,11 +18,11 @@ class Player
       return $this->hand;
    }
 
-   public function showHand($htmlImagePath)
+   public function showHand()
    {
       foreach ($this->hand as $card) {
          if ($this->cardVisible) {
-            echo "<img src=\"{$card->createImageSrc($htmlImagePath)}\">";
+            echo "<img src=\"{$card->pathToImage}\">";
          } else {
             echo "<img src = \"assets/blank.png\">";
          }
