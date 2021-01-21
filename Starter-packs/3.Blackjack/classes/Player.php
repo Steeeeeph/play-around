@@ -22,7 +22,7 @@ class Player
     {
         foreach ($this->hand as $card) {
             if ($this->cardVisible) {
-                echo '<img src="'.$card->pathToImage.'" height="300px" width="auto">';
+                echo '<img src="'.$card->setImageSrc().'" height="300px" width="auto">';
             } else {
                 echo '<img src="assets/blank.png" height="300px" width="auto">';
             }
@@ -33,8 +33,8 @@ class Player
     {
         $totalValueHand = 0;
 
-        foreach ($this->hand as $cardValue) {
-            $totalValueHand += $cardValue->value;
+        foreach ($this->hand as $card) {
+            $totalValueHand += $card->getValue();
         }
         return $totalValueHand;
     }

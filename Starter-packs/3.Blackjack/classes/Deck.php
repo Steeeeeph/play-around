@@ -4,10 +4,10 @@ require "classes/Card.php";
 // Make a deck of cards
 class Deck
 {
-    public $cards = [];
-    public $keys = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
-    public $suits = ["C", "D", "H", "S"];
-    public $cardValue;
+    private $cards = [];
+    private $keys = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
+    private $suits = ["C", "D", "H", "S"];
+    private $cardValue;
 
     public function __construct()
     {
@@ -40,7 +40,7 @@ class Deck
         }
     }
 
-    // TODO link to game
+    // TODO link to game delete function showCards() in other files
 
     // public function showCards()
     // {
@@ -49,11 +49,25 @@ class Deck
     //     }
     // }
 
-    public function showScore()
+    //GETTERS
+    public function getCards()
     {
-        foreach ($this->cards as $card) {
-            $this->cardValue = $card->value;
-        }
+       return $this->cards;
     }
+
+    //SETTERS
+    public function setCards($cards)
+    {
+       $this->cards = $cards;
+    }
+
+
+
+   //  public function showScore()
+   //  {
+   //      foreach ($this->cards as $card) {
+   //          $this->cardValue = $card->value;
+   //      }
+   //  }
 }
 

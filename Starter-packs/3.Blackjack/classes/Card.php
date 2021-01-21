@@ -37,7 +37,7 @@ class Card
         $this->suit = $suit;
     }
 
-    public function createImageSrc() 
+    public function setImageSrc() 
     {
         $this->pathToImage = "assets/{$this->key}{$this->suit}.png";
         return $this->pathToImage;

@@ -27,8 +27,8 @@ $game = new Blackjack();
 $deck = new Deck();
 $card = new Card();
 echo "<pre>";
-var_dump($deck->cards);
-// var_dump($game->run());
+// var_dump($deck->getCards());
+var_dump($game->run());
 // var_dump($game);
 
 // var_dump($deckGame);
