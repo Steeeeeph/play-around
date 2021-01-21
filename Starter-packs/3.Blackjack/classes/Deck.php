@@ -33,7 +33,7 @@ class Deck
                 $card->setKey($key);
                 $card->setSuit($suit);
                 $card->setValue($value);
-                $card->createImageSrc();
+                $card->setImageSrc();
                 $this->cards[] = $card;
             }
             // return $this->cards;
@@ -42,12 +42,6 @@ class Deck
 
     // TODO link to game delete function showCards() in other files
 
-    // public function showCards()
-    // {
-    //     foreach ($this->cards as $card) {
-    //         $card->createImageSrc();
-    //     }
-    // }
 
     //GETTERS
     public function getCards()
